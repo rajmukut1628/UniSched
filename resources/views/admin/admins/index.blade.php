@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -10,9 +9,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        Admin Management | UniSched
-    </title>
+    <title>Admin Management | UniSched</title>
 
     @vite([
         'resources/css/app.css',
@@ -20,14 +17,12 @@
     ])
 
     <style>
-
         * {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
-
             min-height: 100vh;
 
             font-family:
@@ -38,7 +33,7 @@
             background:
                 radial-gradient(
                     circle at 85% 5%,
-                    rgba(37,99,235,.10),
+                    rgba(37, 99, 235, .10),
                     transparent 25%
                 ),
                 #070b16;
@@ -46,64 +41,53 @@
             color: #f8fafc;
         }
 
-        /* =========================================
+        /* ================================
            LAYOUT
-        ========================================= */
+        ================================= */
 
         .layout {
             min-height: 100vh;
             display: flex;
         }
 
-        /* =========================================
+        /* ================================
            SIDEBAR
-        ========================================= */
+        ================================= */
 
         .sidebar {
-
             width: 270px;
-
             min-height: 100vh;
 
             position: fixed;
-
             left: 0;
             top: 0;
 
             padding: 28px 20px;
 
-            background:
-                rgba(11,17,32,.97);
+            background: rgba(11, 17, 32, .97);
 
             border-right:
                 1px solid
-                rgba(255,255,255,.07);
+                rgba(255, 255, 255, .07);
 
             overflow-y: auto;
         }
 
         .brand {
-
             display: flex;
-
             align-items: center;
-
             gap: 12px;
 
             padding: 0 8px;
-
             margin-bottom: 36px;
         }
 
         .brand-icon {
-
             width: 43px;
             height: 43px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             border-radius: 13px;
@@ -119,13 +103,11 @@
 
             box-shadow:
                 0 10px 25px
-                rgba(37,99,235,.25);
+                rgba(37, 99, 235, .25);
         }
 
         .brand-name {
-
             font-size: 23px;
-
             font-weight: 800;
         }
 
@@ -134,16 +116,12 @@
         }
 
         .brand-subtitle {
-
             margin-top: 2px;
-
             color: #64748b;
-
             font-size: 10px;
         }
 
         .nav-title {
-
             margin:
                 25px
                 10px
@@ -152,22 +130,18 @@
             color: #475569;
 
             font-size: 10px;
-
             font-weight: 800;
 
             letter-spacing: 1.6px;
         }
 
         .nav-item {
-
             display: flex;
-
             align-items: center;
 
             gap: 11px;
 
             padding: 12px 14px;
-
             margin-bottom: 5px;
 
             border-radius: 11px;
@@ -182,36 +156,31 @@
         }
 
         .nav-item:hover {
-
             color: #dbeafe;
 
             background:
-                rgba(59,130,246,.08);
+                rgba(59, 130, 246, .08);
 
-            transform:
-                translateX(2px);
+            transform: translateX(2px);
         }
 
         .nav-item.active {
-
             color: #bfdbfe;
 
             background:
                 linear-gradient(
                     90deg,
-                    rgba(37,99,235,.18),
-                    rgba(124,58,237,.08)
+                    rgba(37, 99, 235, .18),
+                    rgba(124, 58, 237, .08)
                 );
 
             border:
                 1px solid
-                rgba(59,130,246,.15);
+                rgba(59, 130, 246, .15);
         }
 
         .nav-icon {
-
             width: 20px;
-
             text-align: center;
         }
 
@@ -219,12 +188,11 @@
             opacity: .48;
         }
 
-        /* =========================================
+        /* ================================
            MAIN
-        ========================================= */
+        ================================= */
 
         .main {
-
             flex: 1;
 
             margin-left: 270px;
@@ -235,36 +203,27 @@
                 60px;
         }
 
-        /* =========================================
+        /* ================================
            HEADER
-        ========================================= */
+        ================================= */
 
         .header {
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
 
             margin-bottom: 30px;
         }
 
         .header h1 {
-
             margin: 0;
 
             font-size: 30px;
-
             font-weight: 800;
         }
 
         .header p {
-
-            margin:
-                7px
-                0
-                0;
+            margin: 7px 0 0;
 
             color: #64748b;
 
@@ -272,38 +231,31 @@
         }
 
         .admin-count {
-
-            padding:
-                9px
-                14px;
+            padding: 9px 14px;
 
             border-radius: 20px;
 
             color: #93c5fd;
 
             background:
-                rgba(59,130,246,.08);
+                rgba(59, 130, 246, .08);
 
             border:
                 1px solid
-                rgba(59,130,246,.12);
+                rgba(59, 130, 246, .12);
 
             font-size: 12px;
-
             font-weight: 700;
         }
 
-        /* =========================================
-           ALERTS
-        ========================================= */
+        /* ================================
+           ALERT
+        ================================= */
 
         .alert {
-
             margin-bottom: 20px;
 
-            padding:
-                14px
-                17px;
+            padding: 14px 17px;
 
             border-radius: 11px;
 
@@ -311,35 +263,32 @@
         }
 
         .alert-success {
-
             color: #86efac;
 
             background:
-                rgba(34,197,94,.08);
+                rgba(34, 197, 94, .08);
 
             border:
                 1px solid
-                rgba(34,197,94,.16);
+                rgba(34, 197, 94, .16);
         }
 
         .alert-error {
-
             color: #fca5a5;
 
             background:
-                rgba(239,68,68,.08);
+                rgba(239, 68, 68, .08);
 
             border:
                 1px solid
-                rgba(239,68,68,.16);
+                rgba(239, 68, 68, .16);
         }
 
-        /* =========================================
+        /* ================================
            GRID
-        ========================================= */
+        ================================= */
 
         .grid {
-
             display: grid;
 
             grid-template-columns:
@@ -351,42 +300,34 @@
             align-items: start;
         }
 
-        /* =========================================
+        /* ================================
            PANEL
-        ========================================= */
+        ================================= */
 
         .panel {
-
             border-radius: 19px;
 
             padding: 24px;
 
             background:
-                rgba(15,23,42,.78);
+                rgba(15, 23, 42, .78);
 
             border:
                 1px solid
-                rgba(255,255,255,.065);
+                rgba(255, 255, 255, .065);
         }
 
         .panel-header {
-
             margin-bottom: 23px;
         }
 
         .panel-header h2 {
-
             margin: 0;
-
             font-size: 18px;
         }
 
         .panel-header p {
-
-            margin:
-                6px
-                0
-                0;
+            margin: 6px 0 0;
 
             color: #64748b;
 
@@ -395,16 +336,15 @@
             line-height: 1.6;
         }
 
-        /* =========================================
+        /* ================================
            FORM
-        ========================================= */
+        ================================= */
 
         .form-group {
             margin-bottom: 17px;
         }
 
         label {
-
             display: block;
 
             margin-bottom: 8px;
@@ -412,23 +352,19 @@
             color: #94a3b8;
 
             font-size: 12px;
-
             font-weight: 600;
         }
 
         input {
-
             width: 100%;
 
-            padding:
-                13px
-                14px;
+            padding: 13px 14px;
 
             border-radius: 10px;
 
             border:
                 1px solid
-                rgba(255,255,255,.08);
+                rgba(255, 255, 255, .08);
 
             background: #090f1d;
 
@@ -440,18 +376,20 @@
         }
 
         input:focus {
-
             border-color: #3b82f6;
 
             box-shadow:
                 0 0 0 3px
-                rgba(59,130,246,.10);
+                rgba(59, 130, 246, .10);
+        }
+
+        input:disabled {
+            cursor: not-allowed;
+            opacity: .6;
         }
 
         .password-note {
-
             margin-top: -8px;
-
             margin-bottom: 16px;
 
             color: #475569;
@@ -461,19 +399,16 @@
             line-height: 1.5;
         }
 
-        /* =========================================
+        /* ================================
            BUTTONS
-        ========================================= */
+        ================================= */
 
         .btn {
-
             border: 0;
 
             border-radius: 9px;
 
-            padding:
-                10px
-                14px;
+            padding: 10px 14px;
 
             cursor: pointer;
 
@@ -485,7 +420,6 @@
         }
 
         .btn-primary {
-
             width: 100%;
 
             padding: 13px;
@@ -501,55 +435,62 @@
         }
 
         .btn-primary:hover {
-
-            transform:
-                translateY(-1px);
+            transform: translateY(-1px);
 
             box-shadow:
                 0 10px 25px
-                rgba(37,99,235,.20);
+                rgba(37, 99, 235, .20);
         }
 
         .btn-edit {
-
             color: #93c5fd;
 
             background:
-                rgba(59,130,246,.10);
+                rgba(59, 130, 246, .10);
         }
 
-        .btn-password {
-
-            color: #c4b5fd;
-
+        .btn-edit:hover {
             background:
-                rgba(139,92,246,.10);
+                rgba(59, 130, 246, .18);
         }
 
         .btn-delete {
-
             color: #fca5a5;
 
             background:
-                rgba(239,68,68,.09);
+                rgba(239, 68, 68, .09);
+        }
+
+        .btn-delete:hover {
+            background:
+                rgba(239, 68, 68, .16);
         }
 
         .btn-disabled {
-
             color: #64748b;
 
             background:
-                rgba(100,116,139,.08);
+                rgba(100, 116, 139, .08);
 
             cursor: not-allowed;
         }
 
-        /* =========================================
+        .save-button {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #7c3aed
+                );
+        }
+
+        /* ================================
            ADMIN LIST
-        ========================================= */
+        ================================= */
 
         .admin-list {
-
             display: flex;
 
             flex-direction: column;
@@ -558,21 +499,32 @@
         }
 
         .admin-card {
-
             padding: 17px;
 
             border-radius: 14px;
 
             background:
-                rgba(9,15,29,.75);
+                rgba(9, 15, 29, .75);
 
             border:
                 1px solid
-                rgba(255,255,255,.055);
+                rgba(255, 255, 255, .055);
+        }
+
+        .owner-card {
+            border:
+                1px solid
+                rgba(250, 204, 21, .18);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(250, 204, 21, .035),
+                    rgba(9, 15, 29, .75)
+                );
         }
 
         .admin-card-top {
-
             display: flex;
 
             align-items: center;
@@ -583,7 +535,6 @@
         }
 
         .admin-profile {
-
             display: flex;
 
             align-items: center;
@@ -592,7 +543,6 @@
         }
 
         .avatar {
-
             width: 44px;
             height: 44px;
 
@@ -618,8 +568,18 @@
             font-weight: 900;
         }
 
-        .admin-name {
+        .owner-avatar {
+            background:
+                linear-gradient(
+                    135deg,
+                    #d97706,
+                    #facc15
+                );
 
+            color: #111827;
+        }
+
+        .admin-name {
             color: #e2e8f0;
 
             font-size: 14px;
@@ -628,7 +588,6 @@
         }
 
         .admin-email {
-
             margin-top: 4px;
 
             color: #64748b;
@@ -636,30 +595,40 @@
             font-size: 11px;
         }
 
-        .you-badge {
-
+        .you-badge,
+        .owner-badge {
             display: inline-block;
 
             margin-left: 7px;
 
-            padding:
-                3px
-                7px;
+            padding: 3px 7px;
 
             border-radius: 15px;
-
-            color: #86efac;
-
-            background:
-                rgba(34,197,94,.08);
 
             font-size: 9px;
 
             font-weight: 800;
         }
 
-        .actions {
+        .you-badge {
+            color: #86efac;
 
+            background:
+                rgba(34, 197, 94, .08);
+        }
+
+        .owner-badge {
+            color: #fde68a;
+
+            background:
+                rgba(245, 158, 11, .10);
+
+            border:
+                1px solid
+                rgba(245, 158, 11, .12);
+        }
+
+        .actions {
             display: flex;
 
             gap: 7px;
@@ -669,12 +638,11 @@
             justify-content: flex-end;
         }
 
-        /* =========================================
-           EDIT PANELS
-        ========================================= */
+        /* ================================
+           EDIT PANEL
+        ================================= */
 
         .hidden-panel {
-
             display: none;
 
             margin-top: 15px;
@@ -684,19 +652,15 @@
             border-radius: 12px;
 
             background:
-                rgba(2,6,23,.55);
+                rgba(2, 6, 23, .55);
 
             border:
                 1px solid
-                rgba(255,255,255,.05);
+                rgba(255, 255, 255, .05);
         }
 
         .hidden-panel h3 {
-
-            margin:
-                0
-                0
-                15px;
+            margin: 0 0 15px;
 
             color: #cbd5e1;
 
@@ -704,7 +668,6 @@
         }
 
         .form-row {
-
             display: grid;
 
             grid-template-columns:
@@ -714,24 +677,11 @@
             gap: 12px;
         }
 
-        .save-button {
-
-            color: white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #2563eb,
-                    #7c3aed
-                );
-        }
-
-        /* =========================================
-           SECURITY
-        ========================================= */
+        /* ================================
+           SECURITY BOX
+        ================================= */
 
         .security-box {
-
             margin-top: 22px;
 
             padding: 18px;
@@ -739,15 +689,14 @@
             border-radius: 14px;
 
             background:
-                rgba(59,130,246,.04);
+                rgba(59, 130, 246, .04);
 
             border:
                 1px solid
-                rgba(59,130,246,.09);
+                rgba(59, 130, 246, .09);
         }
 
         .security-box h3 {
-
             margin: 0;
 
             color: #cbd5e1;
@@ -756,11 +705,7 @@
         }
 
         .security-box p {
-
-            margin:
-                7px
-                0
-                0;
+            margin: 7px 0 0;
 
             color: #64748b;
 
@@ -769,19 +714,34 @@
             line-height: 1.6;
         }
 
-        /* =========================================
+        .security-note {
+            margin-top: 12px;
+
+            padding: 11px 12px;
+
+            border-radius: 9px;
+
+            color: #94a3b8;
+
+            background:
+                rgba(15, 23, 42, .55);
+
+            font-size: 10px;
+
+            line-height: 1.6;
+        }
+
+        /* ================================
            RESPONSIVE
-        ========================================= */
+        ================================= */
 
-        @media(max-width:1050px) {
-
+        @media(max-width: 1050px) {
             .grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        @media(max-width:850px) {
-
+        @media(max-width: 850px) {
             .sidebar {
                 display: none;
             }
@@ -792,8 +752,7 @@
             }
         }
 
-        @media(max-width:650px) {
-
+        @media(max-width: 650px) {
             .admin-card-top {
                 align-items: flex-start;
                 flex-direction: column;
@@ -812,18 +771,16 @@
                 gap: 15px;
             }
         }
-
     </style>
-
 </head>
 
 <body>
 
 <div class="layout">
 
-    {{-- =====================================
+    {{-- ================================
          SIDEBAR
-    ====================================== --}}
+    ================================= --}}
 
     <aside class="sidebar">
 
@@ -834,7 +791,6 @@
             </div>
 
             <div>
-
                 <div class="brand-name">
                     Uni<span>Sched</span>
                 </div>
@@ -842,7 +798,6 @@
                 <div class="brand-subtitle">
                     Academic Scheduling System
                 </div>
-
             </div>
 
         </div>
@@ -958,16 +913,15 @@
     </aside>
 
 
-    {{-- =====================================
+    {{-- ================================
          MAIN
-    ====================================== --}}
+    ================================= --}}
 
     <main class="main">
 
         <div class="header">
 
             <div>
-
                 <h1>
                     Admin Management
                 </h1>
@@ -975,7 +929,6 @@
                 <p>
                     Create and securely manage UniSched administrators.
                 </p>
-
             </div>
 
             <div class="admin-count">
@@ -986,7 +939,9 @@
         </div>
 
 
-        {{-- ALERTS --}}
+        {{-- ================================
+             ALERTS
+        ================================= --}}
 
         @if(session('success'))
 
@@ -1025,9 +980,9 @@
 
         <div class="grid">
 
-            {{-- =====================================
+            {{-- ================================
                  CREATE ADMIN
-            ====================================== --}}
+            ================================= --}}
 
             <section class="panel">
 
@@ -1097,6 +1052,7 @@
                             type="password"
                             name="password"
                             placeholder="Minimum 8 characters"
+                            autocomplete="new-password"
                             required
                         >
 
@@ -1113,6 +1069,7 @@
                             type="password"
                             name="password_confirmation"
                             placeholder="Repeat password"
+                            autocomplete="new-password"
                             required
                         >
 
@@ -1142,19 +1099,25 @@
                     </h3>
 
                     <p>
-                        Public registration is disabled. Only an
-                        authenticated administrator can create
-                        additional administrator accounts.
+                        Public registration is disabled.
+                        Administrator passwords are securely hashed
+                        and cannot be viewed after account creation.
                     </p>
+
+                    <div class="security-note">
+                        If an administrator forgets their password,
+                        they should use the secure Forgot Password
+                        and Reset Password system.
+                    </div>
 
                 </div>
 
             </section>
 
 
-            {{-- =====================================
-                 ADMIN LIST
-            ====================================== --}}
+            {{-- ================================
+                 ADMINISTRATORS
+            ================================= --}}
 
             <section class="panel">
 
@@ -1165,7 +1128,8 @@
                     </h2>
 
                     <p>
-                        Manage administrator information and passwords.
+                        Manage administrator profiles.
+                        Passwords are never displayed from this panel.
                     </p>
 
                 </div>
@@ -1175,14 +1139,45 @@
 
                     @forelse($admins as $admin)
 
-                        <div class="admin-card">
+                        @php
+                            $isOwnerAdmin =
+                                strtolower(trim($admin->email)) ===
+                                strtolower(trim($ownerAdminEmail));
+
+                            $isCurrentAdmin =
+                                auth()->id() === $admin->id;
+
+                            $currentUserIsOwner =
+                                strtolower(trim(auth()->user()->email)) ===
+                                strtolower(trim($ownerAdminEmail));
+
+                            $canEdit =
+                                $isCurrentAdmin ||
+                                (
+                                    $currentUserIsOwner &&
+                                    !$isOwnerAdmin
+                                );
+
+                            $canDelete =
+                                $currentUserIsOwner &&
+                                !$isOwnerAdmin &&
+                                !$isCurrentAdmin;
+                        @endphp
+
+
+                        <div
+                            class="admin-card
+                            {{ $isOwnerAdmin ? 'owner-card' : '' }}"
+                        >
 
                             <div class="admin-card-top">
 
                                 <div class="admin-profile">
 
-                                    <div class="avatar">
-
+                                    <div
+                                        class="avatar
+                                        {{ $isOwnerAdmin ? 'owner-avatar' : '' }}"
+                                    >
                                         {{ strtoupper(
                                             substr(
                                                 $admin->name,
@@ -1190,7 +1185,6 @@
                                                 1
                                             )
                                         ) }}
-
                                     </div>
 
 
@@ -1200,7 +1194,16 @@
 
                                             {{ $admin->name }}
 
-                                            @if(auth()->id() === $admin->id)
+                                            @if($isOwnerAdmin)
+
+                                                <span class="owner-badge">
+                                                    MAIN ADMIN
+                                                </span>
+
+                                            @endif
+
+
+                                            @if($isCurrentAdmin)
 
                                                 <span class="you-badge">
                                                     YOU
@@ -1209,6 +1212,7 @@
                                             @endif
 
                                         </div>
+
 
                                         <div class="admin-email">
                                             {{ $admin->email }}
@@ -1221,29 +1225,70 @@
 
                                 <div class="actions">
 
-                                    <button
-                                        type="button"
-                                        class="btn btn-edit"
-                                        onclick="togglePanel(
-                                            'edit-{{ $admin->id }}'
-                                        )"
-                                    >
-                                        Edit
-                                    </button>
+                                    {{-- EDIT OPTION --}}
+
+                                    @if($canEdit)
+
+                                        <button
+                                            type="button"
+                                            class="btn btn-edit"
+                                            onclick="togglePanel(
+                                                'edit-{{ $admin->id }}'
+                                            )"
+                                        >
+                                            Edit
+                                        </button>
+
+                                    @else
+
+                                        <button
+                                            type="button"
+                                            class="btn btn-disabled"
+                                            disabled
+                                        >
+                                            Protected
+                                        </button>
+
+                                    @endif
 
 
-                                    <button
-                                        type="button"
-                                        class="btn btn-password"
-                                        onclick="togglePanel(
-                                            'password-{{ $admin->id }}'
-                                        )"
-                                    >
-                                        Password
-                                    </button>
+                                    {{--
+                                        PASSWORD OPTION INTENTIONALLY REMOVED
+
+                                        No administrator can see another
+                                        administrator's password.
+
+                                        No password-change option is exposed
+                                        from Admin Management.
+
+                                        Password reset should be performed
+                                        through Forgot Password.
+                                    --}}
 
 
-                                    @if(auth()->id() !== $admin->id)
+                                    {{-- DELETE OPTION --}}
+
+                                    @if($isOwnerAdmin)
+
+                                        <button
+                                            type="button"
+                                            class="btn btn-disabled"
+                                            disabled
+                                        >
+                                            Main Admin
+                                        </button>
+
+                                    @elseif($isCurrentAdmin)
+
+                                        <button
+                                            type="button"
+                                            class="btn btn-disabled"
+                                            disabled
+                                        >
+                                            Protected
+                                        </button>
+
+                                    @elseif($canDelete)
 
                                         <form
                                             method="POST"
@@ -1287,146 +1332,93 @@
                             </div>
 
 
-                            {{-- EDIT ADMIN --}}
+                            {{-- ================================
+                                 EDIT ADMIN
+                            ================================= --}}
 
-                            <div
-                                id="edit-{{ $admin->id }}"
-                                class="hidden-panel"
-                            >
+                            @if($canEdit)
 
-                                <h3>
-                                    Edit Administrator
-                                </h3>
-
-                                <form
-                                    method="POST"
-                                    action="{{ route(
-                                        'admin.admins.update',
-                                        $admin
-                                    ) }}"
+                                <div
+                                    id="edit-{{ $admin->id }}"
+                                    class="hidden-panel"
                                 >
 
-                                    @csrf
-                                    @method('PUT')
+                                    <h3>
+                                        Edit Administrator
+                                    </h3>
 
 
-                                    <div class="form-row">
-
-                                        <div class="form-group">
-
-                                            <label>
-                                                Full Name
-                                            </label>
-
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                value="{{ $admin->name }}"
-                                                required
-                                            >
-
-                                        </div>
-
-
-                                        <div class="form-group">
-
-                                            <label>
-                                                Email
-                                            </label>
-
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                value="{{ $admin->email }}"
-                                                required
-                                            >
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <button
-                                        type="submit"
-                                        class="btn save-button"
+                                    <form
+                                        method="POST"
+                                        action="{{ route(
+                                            'admin.admins.update',
+                                            $admin
+                                        ) }}"
                                     >
-                                        Save Changes
-                                    </button>
 
-                                </form>
-
-                            </div>
+                                        @csrf
+                                        @method('PUT')
 
 
-                            {{-- CHANGE PASSWORD --}}
+                                        <div class="form-row">
 
-                            <div
-                                id="password-{{ $admin->id }}"
-                                class="hidden-panel"
-                            >
+                                            <div class="form-group">
 
-                                <h3>
-                                    Change Password
-                                </h3>
+                                                <label>
+                                                    Full Name
+                                                </label>
 
-                                <form
-                                    method="POST"
-                                    action="{{ route(
-                                        'admin.admins.password',
-                                        $admin
-                                    ) }}"
-                                >
+                                                <input
+                                                    type="text"
+                                                    name="name"
+                                                    value="{{ $admin->name }}"
+                                                    required
+                                                >
 
-                                    @csrf
-                                    @method('PUT')
+                                            </div>
 
 
-                                    <div class="form-row">
+                                            <div class="form-group">
 
-                                        <div class="form-group">
+                                                <label>
+                                                    Email
+                                                </label>
 
-                                            <label>
-                                                New Password
-                                            </label>
+                                                <input
+                                                    type="email"
+                                                    name="email"
+                                                    value="{{ $admin->email }}"
+                                                    {{ $isOwnerAdmin ? 'readonly' : '' }}
+                                                    required
+                                                >
 
-                                            <input
-                                                type="password"
-                                                name="password"
-                                                placeholder="New password"
-                                                required
-                                            >
+                                            </div>
 
                                         </div>
 
 
-                                        <div class="form-group">
+                                        @if($isOwnerAdmin)
 
-                                            <label>
-                                                Confirm Password
-                                            </label>
+                                            <div class="security-note">
+                                                The Main Administrator email
+                                                address is permanently protected.
+                                            </div>
 
-                                            <input
-                                                type="password"
-                                                name="password_confirmation"
-                                                placeholder="Repeat new password"
-                                                required
-                                            >
-
-                                        </div>
-
-                                    </div>
+                                        @endif
 
 
-                                    <button
-                                        type="submit"
-                                        class="btn save-button"
-                                    >
-                                        Update Password
-                                    </button>
+                                        <button
+                                            type="submit"
+                                            class="btn save-button"
+                                        >
+                                            Save Changes
+                                        </button>
 
-                                </form>
+                                    </form>
 
-                            </div>
+                                </div>
+
+                            @endif
 
                         </div>
 
@@ -1450,7 +1442,6 @@
 
 
 <script>
-
     function togglePanel(id) {
 
         const panel =
@@ -1463,18 +1454,12 @@
         if (
             panel.style.display === 'block'
         ) {
-
             panel.style.display = 'none';
-
         } else {
-
             panel.style.display = 'block';
-
         }
     }
-
 </script>
 
 </body>
-
 </html>
