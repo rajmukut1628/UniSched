@@ -227,46 +227,16 @@
             .grid { grid-template-columns:1fr; }
         }
     </style>
+    @include('admin.partials.navigation-styles')
 </head>
 
 <body>
 
+@include('admin.partials.mobile-navigation')
+
 <div class="layout">
 
-    <aside class="sidebar">
-
-        <div class="logo">Uni<span>Sched</span></div>
-
-        <div class="nav-title">OVERVIEW</div>
-        <a href="{{ route('admin.dashboard') }}" class="nav-item">Dashboard</a>
-
-        <div class="nav-title">ACADEMIC</div>
-
-        <a href="{{ route('admin.semesters.index') }}"
-           class="nav-item active">
-            Semesters
-        </a>
-
-        <a href="{{ route('admin.sections.index') }}"
-           class="nav-item">
-            Sections
-        </a>
-
-        <a href="#" class="nav-item">Courses</a>
-        <a href="#" class="nav-item">Faculty</a>
-        <a href="#" class="nav-item">Faculty Availability</a>
-
-        <div class="nav-title">SCHEDULING</div>
-
-        <a href="#" class="nav-item">Rooms</a>
-        <a href="#" class="nav-item">Course Assignments</a>
-        <a href="#" class="nav-item">Routine Builder</a>
-        <a href="#" class="nav-item">Routine Views</a>
-
-        <div class="nav-title">SYSTEM</div>
-        <a href="#" class="nav-item">Admin Management</a>
-
-    </aside>
+    @include('admin.partials.sidebar')
 
     <main class="main">
 

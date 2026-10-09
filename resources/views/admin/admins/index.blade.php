@@ -772,9 +772,16 @@
             }
         }
     </style>
+<<<<<<< HEAD
+=======
+
+    @include('admin.partials.navigation-styles')
+>>>>>>> 01ce32e (Update UniSched dashboard, routine views and UI improvements)
 </head>
 
 <body>
+
+@include('admin.partials.mobile-navigation')
 
 <div class="layout">
 
@@ -782,6 +789,7 @@
          SIDEBAR
     ================================= --}}
 
+<<<<<<< HEAD
     <aside class="sidebar">
 
         <div class="brand">
@@ -911,6 +919,9 @@
         </a>
 
     </aside>
+=======
+    @include('admin.partials.sidebar')
+>>>>>>> 01ce32e (Update UniSched dashboard, routine views and UI improvements)
 
 
     {{-- ================================
