@@ -1052,9 +1052,12 @@
 
     </style>
 
+    @include('admin.partials.navigation-styles')
 </head>
 
 <body>
+
+@include('admin.partials.mobile-navigation')
 
 
 <div class="layout">
@@ -1064,187 +1067,7 @@
          SIDEBAR
     ========================================================== -->
 
-    <aside class="sidebar">
-
-        <div class="brand">
-
-            <div class="brand-icon">
-                US
-            </div>
-
-            <div>
-
-                <div class="brand-name">
-                    Uni<span>Sched</span>
-                </div>
-
-                <div class="brand-subtitle">
-                    Intelligent Academic Scheduling
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="nav-title">
-            OVERVIEW
-        </div>
-
-        <a
-            href="{{ route('admin.dashboard') }}"
-            class="nav-item active"
-        >
-            <span class="nav-icon">◈</span>
-            Dashboard
-        </a>
-
-
-        <div class="nav-title">
-            ACADEMIC MANAGEMENT
-        </div>
-
-        <a
-            href="{{ route('admin.semesters.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">S</span>
-            Semesters
-        </a>
-
-        <a
-            href="{{ route('admin.sections.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">§</span>
-            Sections
-        </a>
-
-        <a
-            href="{{ route('admin.courses.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">C</span>
-            Courses
-        </a>
-
-        <a
-            href="{{ route('admin.teachers.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">F</span>
-            Faculty
-        </a>
-
-        <a
-            href="{{ route('admin.teacher-availability.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">A</span>
-            Faculty Availability
-        </a>
-
-
-        <div class="nav-title">
-            SCHEDULING
-        </div>
-
-        <a
-            href="{{ route('admin.time-slots.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">T</span>
-            Time Slots
-        </a>
-
-        <a
-            href="{{ route('admin.rooms.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">R</span>
-            Rooms & Labs
-        </a>
-
-        <a
-            href="{{ route('admin.course-assignments.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">↔</span>
-            Course Assignments
-        </a>
-
-        <a
-            href="{{ route('admin.routines.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">+</span>
-            Routine Builder
-        </a>
-
-        <a
-            href="{{ route('admin.routine-views.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">▦</span>
-            Routine Views
-        </a>
-
-        <a
-            href="{{ route('admin.routine-publish.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">✓</span>
-            Publish Routine
-        </a>
-
-
-        <div class="nav-title">
-            SYSTEM
-        </div>
-
-        <a
-            href="{{ route('admin.admins.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">⚙</span>
-            Admin Management
-        </a>
-
-
-        <div class="sidebar-bottom">
-
-            <div class="admin-card">
-
-                <div class="admin-name">
-                    {{ auth()->user()->name }}
-                </div>
-
-                <div class="admin-email">
-                    {{ auth()->user()->email }}
-                </div>
-
-            </div>
-
-
-            <form
-                method="POST"
-                action="{{ route('admin.logout') }}"
-            >
-
-                @csrf
-
-                <button
-                    type="submit"
-                    class="logout-button"
-                >
-                    Logout
-                </button>
-
-            </form>
-
-        </div>
-
-    </aside>
+    @include('admin.partials.sidebar')
 
 
     <!-- =========================================================
