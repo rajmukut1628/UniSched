@@ -72,6 +72,17 @@ It helps reduce the time and effort required for manual timetable preparation an
 
 ## 🔐 Security
 
+### Ownership Change
+
+Run `php artisan migrate` after updating to create the ownership settings table.
+The existing account matching `ADMIN_EMAIL` remains the initial Main Administrator.
+
+In **Admin Management → Ownership Change**, the current owner can select another
+existing administrator, enter their own current password, and confirm the transfer.
+The selected administrator becomes the protected Main Administrator, and the previous
+owner becomes a regular administrator. Ownership is stored in the database and survives
+restarts and configuration cache refreshes. Only the current owner can transfer it again.
+
 UniSched uses role-based access control to ensure that each user can only access the features and information permitted for their role.
 
 ### Security Features

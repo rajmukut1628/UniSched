@@ -771,12 +771,17 @@
                 gap: 15px;
             }
         }
+        .ownership-panel { margin-top: 24px; }
+        .ownership-current { color: #94a3b8; margin: 0 0 20px; overflow-wrap: anywhere; }
+        .ownership-current strong { color: #f8fafc; }
+        .ownership-panel form { max-width: 650px; }
+        .ownership-panel select { width: 100%; padding: 13px 14px; border: 1px solid rgba(255,255,255,.08); border-radius: 10px; background: #090f1d; color: white; font: inherit; }
+        .ownership-panel select:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; }
+        .ownership-confirm { display: flex; align-items: flex-start; gap: 12px; margin: 0 0 20px; line-height: 1.6; cursor: pointer; }
+        .ownership-confirm input { width: 18px; height: 18px; flex-shrink: 0; margin: 3px 0 0; accent-color: #3b82f6; }
+        .ownership-error { color: #fca5a5; font-size: 13px; margin-top: 8px; }
     </style>
-<<<<<<< HEAD
-=======
-
     @include('admin.partials.navigation-styles')
->>>>>>> 01ce32e (Update UniSched dashboard, routine views and UI improvements)
 </head>
 
 <body>
@@ -789,139 +794,7 @@
          SIDEBAR
     ================================= --}}
 
-<<<<<<< HEAD
-    <aside class="sidebar">
-
-        <div class="brand">
-
-            <div class="brand-icon">
-                US
-            </div>
-
-            <div>
-                <div class="brand-name">
-                    Uni<span>Sched</span>
-                </div>
-
-                <div class="brand-subtitle">
-                    Academic Scheduling System
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="nav-title">
-            OVERVIEW
-        </div>
-
-        <a
-            href="{{ route('admin.dashboard') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">◈</span>
-            Dashboard
-        </a>
-
-
-        <div class="nav-title">
-            ACADEMIC
-        </div>
-
-        <a
-            href="{{ route('admin.semesters.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">S</span>
-            Semesters
-        </a>
-
-        <a
-            href="{{ route('admin.sections.index') }}"
-            class="nav-item"
-        >
-            <span class="nav-icon">§</span>
-            Sections
-        </a>
-
-        <a
-            href="#"
-            class="nav-item coming"
-        >
-            <span class="nav-icon">C</span>
-            Courses
-        </a>
-
-        <a
-            href="#"
-            class="nav-item coming"
-        >
-            <span class="nav-icon">F</span>
-            Faculty
-        </a>
-
-        <a
-            href="#"
-            class="nav-item coming"
-        >
-            <span class="nav-icon">A</span>
-            Faculty Availability
-        </a>
-
-
-        <div class="nav-title">
-            SCHEDULING
-        </div>
-
-        <a
-            href="#"
-            class="nav-item coming"
-        >
-            <span class="nav-icon">R</span>
-            Rooms & Labs
-        </a>
-
-        <a
-            href="#"
-            class="nav-item coming"
-        >
-            <span class="nav-icon">↔</span>
-            Course Assignments
-        </a>
-
-        <a
-            href="#"
-            class="nav-item coming"
-        >
-            <span class="nav-icon">+</span>
-            Routine Builder
-        </a>
-
-        <a
-            href="#"
-            class="nav-item coming"
-        >
-            <span class="nav-icon">▦</span>
-            Routine Views
-        </a>
-
-
-        <div class="nav-title">
-            SYSTEM
-        </div>
-
-        <a
-            href="{{ route('admin.admins.index') }}"
-            class="nav-item active"
-        >
-            <span class="nav-icon">⚙</span>
-            Admin Management
-        </a>
-
-    </aside>
-=======
     @include('admin.partials.sidebar')
->>>>>>> 01ce32e (Update UniSched dashboard, routine views and UI improvements)
 
 
     {{-- ================================
@@ -1101,27 +974,6 @@
                     </button>
 
                 </form>
-
-
-                <div class="security-box">
-
-                    <h3>
-                        Admin Security
-                    </h3>
-
-                    <p>
-                        Public registration is disabled.
-                        Administrator passwords are securely hashed
-                        and cannot be viewed after account creation.
-                    </p>
-
-                    <div class="security-note">
-                        If an administrator forgets their password,
-                        they should use the secure Forgot Password
-                        and Reset Password system.
-                    </div>
-
-                </div>
 
             </section>
 
@@ -1446,6 +1298,8 @@
             </section>
 
         </div>
+
+        @include('admin.partials.ownership-transfer')
 
     </main>
 

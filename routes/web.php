@@ -568,6 +568,11 @@ Route::middleware('auth')
             [AdminManagementController::class, 'store']
         )->name('admins.store');
 
+        Route::post(
+            '/admins/ownership',
+            [AdminManagementController::class, 'transferOwnership']
+        )->middleware('throttle:5,1')->name('admins.ownership.transfer');
+
 
         /*
         |--------------------------------------------------------------------------

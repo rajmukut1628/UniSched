@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
@@ -19,6 +20,12 @@ class AdminManagementController extends Controller
 
     private function ownerEmail(): string
     {
+        $ownerId = DB::table('admin_ownership')->where('id', 1)->value('owner_id');
+
+        if ($ownerId !== null) {
+            return strtolower(trim((string) User::whereKey($ownerId)->value('email')));
+        }
+
         return strtolower(
             trim((string) config('app.owner_admin_email'))
         );
@@ -46,6 +53,12 @@ class AdminManagementController extends Controller
         return $this->isOwnerAdmin($user);
     }
 
+    private function lockOwnership(): void
+    {
+        $ownership = DB::table('admin_ownership')->where('id', 1)->lockForUpdate()->first();
+        abort_unless($ownership, 503, 'Ownership settings are unavailable.');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | ADMIN MANAGEMENT PAGE
@@ -55,6 +68,7 @@ class AdminManagementController extends Controller
     public function index()
     {
         $ownerAdminEmail = $this->ownerEmail();
+        $currentUserIsOwner = $this->currentUserIsOwner();
 
         $admins = User::query()
             ->orderByRaw(
@@ -69,7 +83,8 @@ class AdminManagementController extends Controller
             'admin.admins.index',
             compact(
                 'admins',
-                'ownerAdminEmail'
+                'ownerAdminEmail',
+                'currentUserIsOwner'
             )
         );
     }
@@ -167,6 +182,15 @@ class AdminManagementController extends Controller
         Request $request,
         User $admin
     ) {
+        return DB::transaction(function () use ($request, $admin) {
+            $this->lockOwnership();
+
+            return $this->updateAdmin($request, $admin->refresh());
+        });
+    }
+
+    private function updateAdmin(Request $request, User $admin)
+    {
         $isOwner = $this->isOwnerAdmin($admin);
         $currentUserIsOwner = $this->currentUserIsOwner();
         $isCurrentUser = auth()->id() === $admin->id;
@@ -315,6 +339,15 @@ class AdminManagementController extends Controller
 
     public function destroy(User $admin)
     {
+        return DB::transaction(function () use ($admin) {
+            $this->lockOwnership();
+
+            return $this->destroyAdmin($admin->refresh());
+        });
+    }
+
+    private function destroyAdmin(User $admin)
+    {
         /*
         |--------------------------------------------------------------------------
         | MAIN ADMIN CAN NEVER BE DELETED
@@ -373,5 +406,37 @@ class AdminManagementController extends Controller
             'success',
             'Administrator deleted successfully.'
         );
+    }
+
+    public function transferOwnership(Request $request)
+    {
+        abort_unless($this->currentUserIsOwner(), 403, 'Only the Main Administrator can transfer ownership.');
+
+        $validated = $request->validateWithBag('ownership', [
+            'new_owner_id' => ['required', 'integer', Rule::exists('users', 'id'), Rule::notIn([$request->user()->id])],
+            'ownership_password' => ['required', 'string', 'current_password'],
+            'confirm_ownership' => ['accepted'],
+        ]);
+
+        return DB::transaction(function () use ($request, $validated) {
+            $this->lockOwnership();
+            $currentOwner = User::whereKey($request->user()->id)->lockForUpdate()->firstOrFail();
+
+            // Recheck after taking the lock: another request may have transferred ownership.
+            abort_unless($this->isOwnerAdmin($currentOwner), 403, 'Only the Main Administrator can transfer ownership.');
+            abort_unless(Hash::check($validated['ownership_password'], $currentOwner->password), 403, 'Your password has changed. Please try again.');
+
+            $newOwner = User::whereKey($validated['new_owner_id'])->lockForUpdate()->firstOrFail();
+
+            DB::table('admin_ownership')->where('id', 1)->update([
+                'owner_id' => $newOwner->id,
+                'updated_at' => now(),
+            ]);
+
+            return redirect()->route('admin.admins.index')->with(
+                'success',
+                'Ownership transferred to '.$newOwner->name.'. Your account is now a regular administrator.'
+            );
+        });
     }
 }
