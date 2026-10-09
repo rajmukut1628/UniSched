@@ -111,10 +111,8 @@ Route::middleware('guest')->group(function () {
     |--------------------------------------------------------------------------
     */
 
-    Route::get(
-        '/admin/reset-password/{token}',
-        [AuthController::class, 'showResetPassword']
-    )->name('admin.password.reset');
+    Route::get('/admin/reset-password/{token}', [AuthController::class, 'showResetPasswordForm'])
+    ->name('password.reset');
 
 
     Route::post(

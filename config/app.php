@@ -2,6 +2,8 @@
 
 return [
 
+     'owner_admin_email' => env('ADMIN_EMAIL'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

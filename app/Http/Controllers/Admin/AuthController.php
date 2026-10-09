@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Illuminate\Validation\ValidationException;
 
+
 class AuthController extends Controller
 {
     /*
@@ -352,4 +353,13 @@ class AuthController extends Controller
                 'You have been logged out successfully.'
             );
     }
+    public function showResetPasswordForm(
+    \Illuminate\Http\Request $request,
+    string $token
+) {
+    return view('admin.auth.reset-password', [
+        'token' => $token,
+        'email' => $request->query('email'),
+    ]);
+}
 }
